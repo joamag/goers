@@ -1,4 +1,4 @@
-package main
+package goers
 
 import "os"
 import "net"
@@ -7,6 +7,7 @@ import "bufio"
 import "strings"
 
 const DEFAULT_PORT = 80
+const DEFAULT_HOST = "google.com:80"
 
 func get(host string) (error) {
 	// splits the provided host string into the host an port
@@ -46,9 +47,7 @@ func get(host string) (error) {
 		// reached and must break the current loop
 		line, _, err := buffer.ReadLine()
 		if err != nil { return err }
-		if len(line) == 0 {
-			break
-		}
+		if len(line) == 0 { break }
 
 		// creates a string value out of the line
 		// and then prints to the standard output
@@ -61,7 +60,7 @@ func get(host string) (error) {
 
 func main() {
 	args := os.Args;
-	host := "google.com:80"
+	host := DEFAULT_HOST
 	if len(args) > 1 { host = args[1] }
 	err := get(host)
 	if err != nil { fmt.Println(err) }
