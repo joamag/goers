@@ -1,10 +1,20 @@
 package main
 
+import "os"
 import "net"
 import "fmt"
 import "bufio"
+import "strings"
 
-func get(host string) {
+const DEFAULT_PORT = 80
+
+func get(host string) (error) {
+	// splits the provided host string into the host an port
+	// parts and in case there's no port part it's added using
+	// the default port value defined in the package
+	parts := strings.Split(host, ":")
+	if len(parts) < 2 { host = fmt.Sprintf("%s:%d", host, DEFAULT_PORT) }
+
 	// prints a debug information into the current
 	// command line output indicating the retrieval
 	// of information from the remote server
@@ -13,10 +23,7 @@ func get(host string) {
 	// establishes the connection to the remote host,
 	// indicating the problem in case it exists
 	conn, err := net.Dial("tcp", host)
-	if err != nil {
-		fmt.Println("There was an error with connection")
-		return
-	}
+	if err != nil { return err }
 
 	// tries to run a simple get statement on the
 	// current connection, this is hardcoded to
@@ -24,10 +31,7 @@ func get(host string) {
 	fmt.Fprintf(conn, "GET / HTTP/1.0\r\n\r\n")
 	buffer := bufio.NewReader(conn)
 	status, err := buffer.ReadString((byte)('\n'))
-	if err != nil {
-		fmt.Println("There was an error in status reading")
-		return
-	}
+	if err != nil { return err }
 
 	// prints the initial status line of the received
 	// request to the standard output buffer
@@ -41,15 +45,9 @@ func get(host string) {
 		// zero, then end od communication has been
 		// reached and must break the current loop
 		line, _, err := buffer.ReadLine()
+		if err != nil { return err }
 		if len(line) == 0 {
 			break
-		}
-
-		// in case the error flag is currently set, must print
-		// a message indicating the problem that was just "raised"
-		if err != nil {
-			fmt.Println("There was an error in line reading")
-			return
 		}
 
 		// creates a string value out of the line
@@ -57,8 +55,14 @@ func get(host string) {
 		lineS := string(line[:])
 		fmt.Printf(lineS + "\n")
 	}
+
+	return nil
 }
 
 func main() {
-	get("google.com:80")
+	args := os.Args;
+	host := "google.com:80"
+	if len(args) > 1 { host = args[1] }
+	err := get(host)
+	if err != nil { fmt.Println(err) }
 }
