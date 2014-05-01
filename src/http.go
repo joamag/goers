@@ -36,7 +36,9 @@ func get(host string) {
 		// zero, then end od communication has been
 		// reached and must break the current loop
 		line, _, _ := buffer.ReadLine()
-		if len(line) == 0 { break }
+		if len(line) == 0 {
+			break
+		}
 
 		// creates a string value out of the line
 		// and then prints to the standard output
