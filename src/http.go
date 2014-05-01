@@ -8,13 +8,14 @@ func get(host string) {
 	// prints a debug information into the current
 	// command line output indicating the retrieval
 	// of information from the remote server
-	fmt.Printf("Retrieving data from %s ...", host)
+	fmt.Printf("GET http://%s\n", host)
 
 	// establishes the connection to the remote host,
 	// indicating the problem in case it exists
 	conn, err := net.Dial("tcp", host)
 	if err != nil {
-		fmt.Printf("There was an error with connection")
+		fmt.Println("There was an error with connection")
+		return
 	}
 
 	// tries to run a simple get statement on the
@@ -23,6 +24,10 @@ func get(host string) {
 	fmt.Fprintf(conn, "GET / HTTP/1.0\r\n\r\n")
 	buffer := bufio.NewReader(conn)
 	status, err := buffer.ReadString((byte)('\n'))
+	if err != nil {
+		fmt.Println("There was an error in status reading")
+		return
+	}
 
 	// prints the initial status line of the received
 	// request to the standard output buffer
@@ -35,9 +40,16 @@ func get(host string) {
 		// case the length of the received bytes is
 		// zero, then end od communication has been
 		// reached and must break the current loop
-		line, _, _ := buffer.ReadLine()
+		line, _, err := buffer.ReadLine()
 		if len(line) == 0 {
 			break
+		}
+
+		// in case the error flag is currently set, must print
+		// a message indicating the problem that was just "raised"
+		if err != nil {
+			fmt.Println("There was an error in line reading")
+			return
 		}
 
 		// creates a string value out of the line
