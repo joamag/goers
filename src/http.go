@@ -40,9 +40,9 @@ func get(host string) {
 
 		// creates a string value out of the line
 		// and then prints to the standard output
-	lineS := string(line[:])
-	fmt.Printf(lineS + "\n")
-}
+		lineS := string(line[:])
+		fmt.Printf(lineS + "\n")
+	}
 }
 
 func main() {
