@@ -10,7 +10,3 @@ func Execute() {
 	err := Get(host)
 	if err != nil { fmt.Println(err) }
 }
-
-func main() {
-	Execute()
-}
