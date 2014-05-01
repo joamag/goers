@@ -22,7 +22,7 @@ func get(host string) {
 	// retrieve the root element of the current element
 	fmt.Fprintf(conn, "GET / HTTP/1.0\r\n\r\n")
 	buffer := bufio.NewReader(conn)
-	status, err := buffer.ReadString('\n')
+	status, err := buffer.ReadString((byte)('\n'))
 
 	// prints the initial status line of the received
 	// request to the standard output buffer
@@ -40,9 +40,9 @@ func get(host string) {
 
 		// creates a string value out of the line
 		// and then prints to the standard output
-		line_s := string(line[:])
-		fmt.Printf(line_s + "\n")
-	}
+	lineS := string(line[:])
+	fmt.Printf(lineS + "\n")
+}
 }
 
 func main() {
