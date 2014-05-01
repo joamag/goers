@@ -8,6 +8,9 @@ import "strings"
 const DEFAULT_PORT = 80
 const DEFAULT_HOST = "google.com:80"
 
+// Get retrieves the header contents from an HTTP base connection
+// with the provided host string, the string should conform with
+// the HOST:PORT format to be able to be used correctly.
 func get(host string) (error) {
 	// splits the provided host string into the host an port
 	// parts and in case there's no port part it's added using
