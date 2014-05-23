@@ -1,3 +1,3 @@
-# Go test project
+# Goers
 
 Random set of tests under the go language.
