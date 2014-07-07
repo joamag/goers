@@ -1,6 +1,7 @@
 # Goers
 
-Random set of tests under the go language.
+Random set of tests under the go language. These test are meant to serve as an introduction to
+the language and no practical use case should be solved.
 
 ## Installation
 
