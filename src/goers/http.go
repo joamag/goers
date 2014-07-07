@@ -67,5 +67,7 @@ func Get(host string) error {
         fmt.Printf(lineS + "\n")
     }
 
+    // returns an empty error value meaning that no error
+    // as occurred for the current session
     return nil
 }
