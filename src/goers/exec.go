@@ -4,7 +4,7 @@ import "os"
 import "fmt"
 
 // Runs the default execution process that tries to retrieve
-// http information based on the command line arguments and
+// HTTP information based on the command line arguments and
 // fallsback to the static values otherwise.
 func Execute() {
     args := os.Args
