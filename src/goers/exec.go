@@ -8,7 +8,7 @@ import "fmt"
 // arguments and fallsback to the static values otherwise.
 func Execute() {
 	args := os.Args
-	host := DEFAULT_HOST
+	host := DefaultHost
 	if len(args) > 1 {
 		host = args[1]
 	}
