@@ -5,5 +5,5 @@ import "github.com/pborman/uuid"
 // UUID generates a UUID value using an external library
 // creating a simple yet usefull abstraction for such operation.
 func UUID() (string, error) {
-	return uuid.New(), nil
+    return uuid.New(), nil
 }
