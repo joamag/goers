@@ -8,3 +8,12 @@ func TestSimple(t *testing.T) {
         t.Error("Expected 42, got", result)
     }
 }
+
+func TestMap(t *testing.T) {
+    var result map[string]int
+    result = make(map[string]int)
+    result["test"] = 42
+    if result["test"] != 42 {
+        t.Error("Expected 42, got", result["test"])
+    }
+}
