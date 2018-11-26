@@ -5,7 +5,7 @@ import "fmt"
 
 // Execute runs the default execution process that tries to
 // retrieve HTTP information based on the command line
-// arguments and fallsback to the static values otherwise.
+// arguments and fallback to the static values otherwise.
 func Execute() {
     args := os.Args
     host := DefaultHost
