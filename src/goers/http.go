@@ -10,7 +10,7 @@ import "strings"
 const DefaultPort = 80
 
 // DefaultHost defines the host that is going to be used in
-// case no other host is provded
+// case no other host is provided
 const DefaultHost = "google.com:80"
 
 // Get retrieves the header contents from an HTTP based connection

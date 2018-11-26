@@ -1,3 +1,5 @@
+//+build full
+
 package goers
 
 import "github.com/pborman/uuid"
