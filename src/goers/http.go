@@ -40,7 +40,10 @@ func Get(host string) error {
     // tries to run a simple get statement on the
     // current connection, this is hardcoded to
     // retrieve the root element of the current element
-    fmt.Fprintf(conn, "GET / HTTP/1.0\r\n\r\n")
+    _, err = fmt.Fprintf(conn, "GET / HTTP/1.0\r\n\r\n")
+    if err != nil {
+        return err
+    }
     buffer := bufio.NewReader(conn)
     status, err := buffer.ReadString((byte)('\n'))
     if err != nil {
