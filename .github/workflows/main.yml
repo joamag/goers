@@ -13,7 +13,7 @@ jobs:
       - run: |
           cd ..
           mkdir -p ~/gopath/src/github.com/joamag
-          mv goers ~/gopath/src/github.com/joamag
+          cp -rp goers ~/gopath/src/github.com/joamag
       - run: go version
       - run: GOPATH=~/gopath go get -t -v ./...
       - run: GOPATH=~/gopath go test -v ./...
