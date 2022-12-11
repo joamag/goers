@@ -1,19 +1,28 @@
 name: Main Workflow
-on: [push]
+on:
+  push:
+    tags:
+      - "*"
 jobs:
   build-gcc:
     name: Build
+    timeout-minutes: 10
     strategy:
       matrix:
         go-version: ["1.2", "1.3", "1.4", "1.5", "1.6", "1.7", "1.8", "1.9", "1.10", "1.11", "1.12", "1.13", "1.14", "1.15"]
     runs-on: ubuntu-latest
     container: golang:${{ matrix.go-version }}
     steps:
-      - uses: actions/checkout@v1
-      - run: |
+      - name: Checkout code from repository
+        uses: actions/checkout@v3
+      - name: Create directories
+        run: |
           cd ..
           mkdir -p ~/gopath/src/github.com/joamag
           cp -rp goers ~/gopath/src/github.com/joamag
-      - run: go version
-      - run: cd ~/gopath && GOPATH=~/gopath go get -t -v ./...
-      - run: cd ~/gopath && GOPATH=~/gopath go test -v ./...
+      - name: Print Go information
+        run: go version
+      - name: Build package
+        run: cd ~/gopath && GOPATH=~/gopath go get -t -v ./...
+      - name: Run unit tests
+        run: cd ~/gopath && GOPATH=~/gopath go test -v ./...
