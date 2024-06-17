@@ -33,7 +33,7 @@ jobs:
     container: golang:${{ matrix.go-version }}
     steps:
       - name: Checkout code from repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v3
       - name: Create directories
         run: |
           cd ..
