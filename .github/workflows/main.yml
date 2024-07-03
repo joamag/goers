@@ -58,6 +58,8 @@ jobs:
         uses: actions/checkout@v4
       - name: Print Go information
         run: go version
+      - name: Build Main
+        run: go build
       - name: Build Goers
         run: cd src/goers && go build
       - name: Build Goers Run
