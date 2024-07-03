@@ -61,6 +61,6 @@ jobs:
       - name: Build Goers
         run: cd src/goers && go build
       - name: Build Goers Run
-        run: cd src/goers-run && go build
+        run: cd src/goers-run && go build -buildvcs=false
       - name: Run unit tests
         run: cd src/goers && go test
