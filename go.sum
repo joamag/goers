@@ -3,7 +3,5 @@ github.com/google/uuid v1.6.0 h1:NIvaJDMOsjHA8n1jAhLSgzrAzy1Hgr+hNrb57e+94F0=
 github.com/google/uuid v1.6.0/go.mod h1:TIyPZe4MgqvfeYDBFedMoGGpEw/LqOeaOT+nhxU+yHo=
 github.com/jmcvetta/useless v0.0.0-20120429094023-ede395a9dd00 h1:x8pgdBN4vtW2N00isie/71Lgfldwu6vMp4gd1GFVAiQ=
 github.com/jmcvetta/useless v0.0.0-20120429094023-ede395a9dd00/go.mod h1:TAbOS6O2Me2IB03cAUyQlIr9CJLNWD/tdYNm9TQJZ+s=
-github.com/joamag/goers v0.0.0-20240617111329-63015f666227 h1:NM8m1owYQ44qXRFEtLpSQ1ojscVT3RXrG0RJWTek8GI=
-github.com/joamag/goers v0.0.0-20240617111329-63015f666227/go.mod h1:oVzifPI1bs/d6Ujn3F8W0xNNW6yVZEpuSBIm8+S9P5g=
 github.com/pborman/uuid v1.2.1 h1:+ZZIw58t/ozdjRaXh/3awHfmWRbzYxJoAdNJxe/3pvw=
 github.com/pborman/uuid v1.2.1/go.mod h1:X/NO0urCmaxf9VXbdlT7C2Yzkj2IKimNn4k+gtPdI/k=
