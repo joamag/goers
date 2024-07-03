@@ -62,5 +62,6 @@ jobs:
         run: cd src/goers && go build
       - name: Build Goers Run
         run: cd src/goers-run && go build -buildvcs=false
+        if: matrix.go-version != '1.16' && matrix.go-version != '1.17'
       - name: Run unit tests
         run: cd src/goers && go test
