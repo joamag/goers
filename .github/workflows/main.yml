@@ -58,11 +58,9 @@ jobs:
         uses: actions/checkout@v4
       - name: Print Go information
         run: go version
-      - name: Build packages
-        run: |
-          cd src/goers && go build
-          cd src/goers-run && go build
+      - name: Build Goers
+        run: cd src/goers && go build
+      - name: Build Goers Run
+        run: cd src/goers-run && go build
       - name: Run unit tests
-        run: |
-          cd src/goers && go test
-          cd src/goers-run && go test
+        run: cd src/goers && go test
