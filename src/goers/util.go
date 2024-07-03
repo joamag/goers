@@ -1,4 +1,5 @@
 //go:build full
+// +build full
 
 package goers
 
