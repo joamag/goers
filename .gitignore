@@ -9,3 +9,5 @@ debug
 /bin
 /pkg
 /out
+
+/go.sum
